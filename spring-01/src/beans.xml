@@ -1,0 +1,19 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id ="address" class="com.darenzai.beans.autowire.Address" 
+	p:city="beijing" p:street="huilongguan" ></bean>
+		
+	<bean id="car" class="com.darenzai.beans.autowire.Car"
+	p:brand="auto" p:price="1221">	
+	</bean>
+	<!-- 可以根据autowire属性自动装配方式 -->
+	<bean id="person" class="com.darenzai.beans.autowire.Person" p:name="tom" 
+	autowire="byType"
+	></bean>
+
+</beans>

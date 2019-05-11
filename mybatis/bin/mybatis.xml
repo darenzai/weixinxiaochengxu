@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<typeAliases>
+		<package name="com.darenzai.pojo" />
+
+	</typeAliases>
+	<!-- 配置环境 默认值是default -->
+	<environments default="development">
+
+		<environment id="development">
+
+			<transactionManager type="JDBC" />
+
+		
+			<dataSource type="POOLED">
+
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+
+				<property name="url"
+					value="jdbc:mysql://localhost:3306/demo?characterEncoding=UTF-8" />
+
+
+				<property name="username" value="root" />
+
+				<property name="password" value="darenzai" />
+
+			</dataSource>
+
+		</environment>
+	</environments>
+
+
+
+
+	<!-- resource 使用了相对于类路径的引用 使用完全限定资源定位符（URL） url="file:///var/mappers/AuthorMapper.xml 
+		使用映射器接口实现类的完全限定类名 <mapper class="org.mybatis.builder.AuthorMapper"/> 将包内的映射器接口实现全部注册为映射器 
+		<package name="org.mybatis.builder"/> -->
+
+
+	<mappers>
+		<package name="org.mybatis.builder" />
+	</mappers>
+
+	<mappers>
+		<mapper resource="com/darenzai/pojo/Person.xml" />
+	</mappers>
+</configuration>

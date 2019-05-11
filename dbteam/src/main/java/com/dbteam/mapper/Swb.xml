@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<mapper namespace="com.dbteam.mapper.SwbMapper">
+	   	<insert id="add" parameterType="Swb">
+	   		insert into swbtable(hostelId, hostelGrade,checkTime,hostelItem,deductMarkScause)
+	   		values(#{hostelId},#{hostelGrade},#{checkTime},#{hostelItem},#{deductMarkScause})
+	   		
+	   		
+	   	</insert> 
+	   	
+	   	<update id="update" parameterType="Swb">
+	   		update swbtable set hostelId=#{hostelId},hostelGrade=#{hostelGrade},checkTime=#{checkTime},hostelItem=#{hostelItem},deductMarkScause=#{deductMarkScause} where id=#{id}
+	   	</update>   
+	   	
+	   	
+	   	<delete id="delete" parameterType="Swb">
+	   		delete from swbtable where id=#{id}
+	   	</delete>
+	   	
+	   	<select id="get" parameterType="int" resultType="com.dbteam.beans.Swb">
+	   		select * from swbtable where hostelId= #{hostelId}
+	   	</select>
+	   	
+	   	<select id="list" parameterType="Swb" resultType="com.dbteam.beans.Swb"> 
+	   		select * from swbtable 
+	   	</select>
+	   	
+	   	
+	</mapper>
+
