@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+
+<mapper namespace="com.darenzai.mapper.UserMapper">
+	
+	<insert id="addUser" parameterType="User">
+		insert into demo(name,passwd) values(#{name},#{passwd})
+	</insert>
+	
+	<update id="updateUser" parameterType="User">
+		update demo set name=#{name},passwd=#{passwd} where id=#{id};
+	
+	</update>
+	
+	<select id="findUser" parameterType="int" resultType="User">
+		select id,name,passwd from demo where id=#{id};
+	</select>
+	
+	<select id="findAll" resultType="User">
+		select * from demo
+		
+	</select>
+	
+	<delete id="deleteUser" parameterType="int">
+		delete from demo where id=#{id};
+	</delete>
+</mapper>
+
